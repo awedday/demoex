@@ -1,0 +1,15 @@
+﻿<Window x:Class="WpfApp1.Auth"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Auth" Height="450" Width="800">
+    <Grid>
+        <Button Name="AuthBt" Content="Button" HorizontalAlignment="Left" Height="41" Margin="322,349,0,0" VerticalAlignment="Top" Width="152" Click="AuthBt_Click"/>
+        <TextBox x:Name="Email" HorizontalAlignment="Left" Height="41" Margin="103,136,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="539"/>
+        <TextBox x:Name="Password" HorizontalAlignment="Left" Height="33" Margin="103,217,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="539"/>
+
+    </Grid>
+</Window>
