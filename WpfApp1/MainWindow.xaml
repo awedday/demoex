@@ -12,7 +12,7 @@
             <RowDefinition Height="319*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="1">
-            <DataGrid x:Name="DataUsers" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid x:Name="DataUsers" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="DataUsers_SelectionChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Email" Binding="{Binding Email}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Пароль" Binding="{Binding Password}"></DataGridTextColumn>
@@ -26,10 +26,14 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
-        <TextBox x:Name="Search" HorizontalAlignment="Left" Margin="10,19,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="274" Height="30" TextChanged="Search_TextChanged"/>
-        <ComboBox x:Name="Parametr" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="276" Height="33" SelectionChanged="Parametr_SelectionChanged"/>
-        <TextBox x:Name="All" HorizontalAlignment="Left" Margin="388,19,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Average" HorizontalAlignment="Left" Margin="388,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="Search" HorizontalAlignment="Left" Margin="10,19,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="102" Height="18" TextChanged="Search_TextChanged"/>
+        <ComboBox x:Name="Parametr" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="124" Height="32" SelectionChanged="Parametr_SelectionChanged"/>
+        <TextBox x:Name="All" HorizontalAlignment="Left" Margin="158,19,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Average" HorizontalAlignment="Left" Margin="158,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="656,0,0,0" VerticalAlignment="Center" Click="Button_Click"/>
+        <Button x:Name="delete" Content="Удалить" HorizontalAlignment="Left" Margin="561,52,0,0" VerticalAlignment="Top" Click="delete_Click" />
+        <TextBox x:Name="RoleName" HorizontalAlignment="Left" Margin="296,19,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="insert" Content="Добавить" HorizontalAlignment="Left" Margin="573,25,0,0" VerticalAlignment="Top" Click="insert_Click"/>
+        <Button x:Name="Update" Content="Изменить" HorizontalAlignment="Left" Margin="579,81,0,0" VerticalAlignment="Top" Click="Update_Click"/>
     </Grid>
 </Window>

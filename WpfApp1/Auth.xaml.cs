@@ -26,27 +26,39 @@ namespace WpfApp1
         public Session1_XXEntities db = new Session1_XXEntities();
         private void AuthBt_Click(object sender, RoutedEventArgs e)
         {
-            var userList = db.Users.Where(a => (a.Email.Contains(Email.Text))&& a.Password.Contains(Password.Text)).ToList();
-            if (userList.Count > 0)
-            {
-                foreach (var user in userList)
+            
+                var userList = db.Users.Where(a => (a.Email.Contains(Email.Text)) && a.Password.Contains(Password.Text)).ToList();
+                if (userList.Count != 0)
                 {
-                    if(user.RoleID == 1)
+                    try
                     {
-                        MainWindow main = new MainWindow();
-                        main.Show();
-                        this.Close();
+                        foreach (var user in userList)
+                        {
+                            if (user.RoleID == 1)
+                            {
+                                MainWindow main = new MainWindow();
+                                main.Show();
+                                this.Close();
+                            }
+                            else if (user.RoleID == 2)
+                            {
+                                MessageBox.Show("вы пользователь");
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Неверный логин или пароль");
+
+                            }
+                        }
                     }
-                    else if(user.RoleID == 2)
-                    {
-                        MessageBox.Show("вы пользователь");
-                    }                    
-                }      
-            }
-            else
-            {
-                MessageBox.Show("Неверный логин или пароль");
-            }                                   
+                    catch { }
+                }
+                else
+                {
+                    MessageBox.Show("Неверный логин или пароль");
+                }
+            
         }      
     }
 }

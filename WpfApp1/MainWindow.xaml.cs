@@ -55,7 +55,6 @@ namespace WpfApp1
             }
             Average.Text = AverageCout.ToString();
         }
-
         private void Search_TextChanged(object sender, TextChangedEventArgs e)
         {
             var userList = db.Users.Where(a =>a.FirstName.Contains(Search.Text)).ToList();
@@ -81,6 +80,49 @@ namespace WpfApp1
             Auth auth = new Auth();
             auth.Show();
             this.Close();
+        }
+
+        private void delete_Click(object sender, RoutedEventArgs e)
+        {
+            Users selectedItem = (Users)  DataUsers.SelectedItem;
+            db.Users.Remove(selectedItem);
+            db.SaveChanges();
+            DataUsers.Items.Refresh();
+            Data_Reload();
+            
+        }
+
+        private void DataUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Data_Reload();
+            if (DataUsers.SelectedValuePath != null)
+            {
+
+            }
+        }
+
+        private void insert_Click(object sender, RoutedEventArgs e)
+        {
+            Roles apl = new Roles();
+            {
+                apl.Title = RoleName.Text;
+               
+            };
+            db.Roles.Add(apl);
+            db.SaveChanges();
+            MessageBox.Show("Данные добавлены");
+            Data_Reload();
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            Data_Reload();
+            var apl = DataUsers.SelectedItem as Roles;
+            if (DataUsers.SelectedValuePath != null)
+            {
+                apl.Title = RoleName.Text;
+
+            }
         }
     }
 }

@@ -15,6 +15,22 @@ namespace WpfApp1
             return db.Users.ToList().Count;
         }
 
+        public string IDUser()
+        {
+            string id;
+            string ID = "Ошибка";
+            var userList = db.Roles.Where(a => a.Title.Contains("User")).ToList();
+            foreach (var user in userList)
+            {
+                id = user.ID.ToString();
+                
+                return id;
+            }
+            return ID;
+        }
+
+            
+
 
     }
 }
